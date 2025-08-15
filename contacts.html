@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tales and Tea — Contact</title>
+    <style>
+      /* Color variables */
+      :root {
+        --bg: #f5e6f0;
+        --card: #ffffff;
+        --accent: #5a0b2e;
+        --accent-2: #8a1342;
+      }
+
+      /* ---------- Basic reset ---------- */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        color: var(--accent);
+        background-color: var(--bg);
+      }
+
+      /* ---------- Header / Nav ---------- */
+      .site-header {
+        background: var(--card);
+        padding: 18px 36px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+      .brand {
+        font-weight: 700;
+        font-size: 28px;
+        color: var(--accent);
+        letter-spacing: 1px;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      nav a {
+        text-decoration: none;
+        color: var(--accent-2);
+        font-size: 15px;
+      }
+      nav a:hover {
+        text-decoration: underline;
+        color: var(--accent);
+      }
+
+      /* ---------- Hero banner ---------- */
+      .hero {
+        position: relative;
+        height: 220px;
+        background-image: url("hero.jpg"); /* keep your hero image */
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* darken the hero slightly for readable text */
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(
+          90,
+          11,
+          46,
+          0.25
+        ); /* using accent color with opacity */
+      }
+      .hero h1 {
+        position: relative;
+        color: var(--card);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 44px;
+        font-weight: 600;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        transform: translateY(-8px);
+      }
+
+      /* ---------- Main three-column contact area ---------- */
+      .contact-wrap {
+        display: grid;
+        grid-template-columns: 1fr 420px 1fr;
+        gap: 24px;
+        padding: 28px 36px 60px;
+        background: var(--bg);
+        align-items: start;
+      }
+
+      .card {
+        background: var(--card);
+        border-radius: 6px;
+        box-shadow: 0 6px 18px rgba(90, 11, 46, 0.12);
+        overflow: hidden;
+      }
+
+      /* Map column look */
+      .map {
+        min-height: 360px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .map iframe,
+      .map .map-placeholder {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+
+      /* Center contact card */
+      .contact-card {
+        padding: 22px;
+      }
+      .contact-card h2 {
+        font-size: 22px;
+        margin-bottom: 12px;
+        color: var(--accent);
+      }
+      .contact-card .meet-us {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 18px;
+        color: #6e4c5e; /* a softer accent */
+        font-size: 15px;
+      }
+      .contact-card .meet-us .item {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .contact-card label {
+        font-size: 13px;
+        display: block;
+        margin-bottom: 6px;
+        color: var(--accent-2);
+      }
+      .contact-card input[type="text"],
+      .contact-card textarea {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 6px;
+        border: 1px solid #d4c4d3; /* light muted pink border */
+        font-size: 14px;
+        font-family: inherit;
+      }
+      .contact-card textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .contact-card input[type="text"]:focus,
+      .contact-card textarea:focus {
+        border-color: var(--accent-2);
+        outline: none;
+      }
+
+      .contact-card .btn {
+        margin-top: 12px;
+        display: inline-block;
+        background: linear-gradient(135deg, var(--accent-2), var(--accent));
+        color: var(--card);
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.3s ease;
+      }
+      .contact-card .btn:hover {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      }
+
+      /* small visual section (Meet Us heading) */
+      .contact-header {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+      }
+      .contact-header h3 {
+        font-size: 18px;
+        color: var(--accent);
+      }
+      .contact-header img {
+        width: 48px;
+        height: 48px;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+
+      /* ---------- Responsive tweaks ---------- */
+      @media (max-width: 1000px) {
+        .contact-wrap {
+          grid-template-columns: 1fr;
+          padding: 20px;
+        }
+        .hero {
+          height: 200px;
+        }
+      }
+      @media (max-width: 520px) {
+        .site-header {
+          padding: 12px 18px;
+        }
+        .brand {
+          font-size: 20px;
+        }
+        nav ul {
+          gap: 12px;
+          font-size: 13px;
+        }
+        .hero h1 {
+          font-size: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">TALES AND TEA</div>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="dashboard.html">My dashboard</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero" role="img" aria-label="Laptop on a desk background">
+      <h1>Contact Us</h1>
+    </section>
+
+    <main class="contact-wrap" aria-labelledby="contact-heading">
+      <!-- left map -->
+      <aside class="card map" aria-hidden="false">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19845.59546418792!2d30.06895323418856!3d-1.957769304592479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca9444de6b335%3A0x2d2d66168a49a4d8!2sKigali%2C%20Rwanda!5e0!3m2!1sen!2srw!4v1691827200000!5m2!1sen!2srw"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
+      </aside>
+
+      <!-- center contact card -->
+      <section class="card contact-card" id="contact-heading">
+        <div class="contact-header" style="margin-bottom: 12px">
+          <div>
+            <h3>Meet Us</h3>
+            <div style="color: #6e4c5e; font-size: 14px">
+              We'd love to hear from you
+            </div>
+          </div>
+        </div>
+
+        <div class="meet-us" style="margin-bottom: 16px">
+          <div class="item"><strong>Phone:</strong>&nbsp; +250780223666</div>
+          <div class="item">
+            <strong>Email:</strong>&nbsp; contact@admin.com
+          </div>
+          <div class="item">
+            <strong>Address:</strong>&nbsp; 1784 Kibagabaga Street, Gasabo
+          </div>
+        </div>
+
+        <h2>Contact</h2>
+
+        <form
+          onsubmit="event.preventDefault(); alert('Message sent (demo)');"
+          aria-label="Contact form"
+        >
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" required />
+
+          <label for="message" style="margin-top: 12px">Message</label>
+          <textarea
+            id="message"
+            placeholder="Write your message..."
+            required
+          ></textarea>
+
+          <button class="btn" type="submit">Send</button>
+        </form>
+      </section>
+
+      <!-- right map / image -->
+      <aside class="card map">
+        <div class="map-placeholder">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19845.59546418792!2d30.06895323418856!3d-1.957769304592479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca9444de6b335%3A0x2d2d66168a49a4d8!2sKigali%2C%20Rwanda!5e0!3m2!1sen!2srw!4v1691827200000!5m2!1sen!2srw"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </aside>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tales & Tea Dashboard</title>
+    <style>
+      :root {
+        --primary: #c97ea8; /* Navbar background */
+        --secondary: #e8b4d0; /* Sidebar background */
+        --background: #f5d9e5; /* Page background */
+        --accent: #5a0034; /* Text & buttons */
+        --card: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        display: flex;
+        height: 100vh;
+        background-color: var(--background);
+      }
+
+      /* Sidebar */
+      .sidebar {
+        width: 250px;
+        background-color: var(--secondary);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .sidebar h2 {
+        color: var(--accent);
+        margin-bottom: 10px;
+      }
+
+      .sidebar a {
+        text-decoration: none;
+        color: var(--accent);
+        font-weight: bold;
+        padding: 10px;
+        background-color: var(--card);
+        border-radius: 8px;
+        transition: background 0.3s;
+      }
+
+      .sidebar a:hover {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      /* Main content */
+      .main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Header */
+      .header {
+        background-color: var(--primary);
+        padding: 15px 20px;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      /* Content area */
+      .content {
+        flex: 1;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        background-color: var(--card);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .card h3 {
+        color: var(--accent);
+        margin-bottom: 10px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        margin-top: 10px;
+        transition: background 0.3s;
+      }
+
+      .btn:hover {
+        background-color: #800046;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>Tales & Tea</h2>
+
+      <a href="home.html">Home</a>
+      <a href="contacts.html">Contacts</a>
+      <a href="about.html">About</a>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+      <!-- Header -->
+      <div class="header">📚 Tales & Tea Dashboard</div>
+
+      <!-- Content -->
+      <div class="content">
+        <div class="card">
+          <h3>Total Books</h3>
+          <p>1,200</p>
+          <a href="#" class="btn">View All</a>
+        </div>
+        <div class="card">
+          <h3>Borrowed Books</h3>
+          <p>350</p>
+          <a href="#" class="btn">See Details</a>
+        </div>
+        <div class="card">
+          <h3>New Requests</h3>
+          <p>45</p>
+          <a href="#" class="btn">Check Now</a>
+        </div>
+                <div class="card">
+          <h3>Returned books</h3>
+          <p>15</p>
+          <a href="#" class="btn">Check Now</a>
+                </div>
+      </div>
+    </div>
+  </body>
+</html>

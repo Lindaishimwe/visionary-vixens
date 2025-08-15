@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Borrow a Book</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #fceef5;
+      }
+
+      /* Navbar */
+      header {
+        background-color: #dba9c8;
+        padding: 10px 30px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      header h2 {
+        margin: 0;
+      }
+
+      nav {
+        margin-left: auto;
+      }
+
+      nav a {
+        margin-left: 15px;
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+      }
+
+      /* Search bar */
+      .search-bar {
+        padding: 15px;
+        text-align: center;
+      }
+
+      .search-bar input {
+        width: 50%;
+        padding: 8px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+
+      /* Books grid */
+      .book-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .book-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 10px;
+      }
+
+      .book-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .book-card button {
+        margin-top: 10px;
+        padding: 8px 15px;
+        background-color: #720b35;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      .book-card button:hover {
+        background-color: #9a174a;
+      }
+
+      /* Form section */
+      .form-box {
+        background-color: #b089a1;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 350px;
+        margin: 20px auto;
+      }
+
+      .form-box label {
+        display: block;
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .form-box input,
+      .form-box select {
+        width: 100%;
+        padding: 6px;
+        margin-top: 4px;
+        border-radius: 5px;
+        border: none;
+      }
+
+      .form-box button {
+        background-color: #5a0b2e;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        margin-top: 15px;
+      }
+
+      .form-box button:hover {
+        background-color: #8a1342;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <h2>Borrow a Book</h2>
+      <nav>
+        <a href="home.html">Home</a>
+        <a href="search.html">Search books</a>
+    <a href="dashboard.html">My dashboard</a>
+        <a href="contacts.html">Contact</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <!-- Search bar -->
+    <div class="search-bar">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search for a book..."
+        onkeyup="searchBooks()"
+      />
+    </div>
+
+    <!-- Borrow form -->
+    <div class="form-box">
+      <p>Fill in the form to request your book.</p>
+      <label>Full name:</label>
+      <input type="text" placeholder="Your full name" />
+
+      <label>Email/phone number:</label>
+      <input type="text" placeholder="Email or phone" />
+
+      <label>Book title:</label>
+      <input type="text" id="bookTitle" placeholder="Book title" />
+
+         <label>Book Store:</label>
+      <input type="text" id="bookStore" placeholder="Book Store" />
+
+      <label>Delivery option:</label>
+      <select>
+        <option>Pick-up</option>
+        <option>Home delivery</option>
+      </select>
+
+      <label>Delivery address:</label>
+      <input type="text" placeholder="Your address" />
+
+      <label>Preferred date:</label>
+      <input type="date" />
+
+      <button onclick="submitRequest()">Request book</button>
+    </div>
+
+    <script>
+      function searchBooks() {
+        let input = document.getElementById("searchInput").value.toLowerCase();
+        let books = document.querySelectorAll(".book-card");
+
+        books.forEach((book) => {
+          let title = book.querySelector("h3").textContent.toLowerCase();
+          book.style.display = title.includes(input) ? "block" : "none";
+        });
+      }
+
+      function selectBook(bookName) {
+        document.getElementById("bookTitle").value = bookName;
+        window.scrollTo({
+          top: document.querySelector(".form-box").offsetTop,
+          behavior: "smooth",
+        });
+      }
+
+      function submitRequest() {
+        let title = document.getElementById("bookTitle").value;
+        if (title.trim() === "") {
+          alert("Please select or enter a book title.");
+        } else {
+          alert(`Your request for "${title}" has been submitted!`);
+        }
+      }
+    </script>
+  </body>
+</html>

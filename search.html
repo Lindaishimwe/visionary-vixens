@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Library — Clean Grid</title>
+    <style>
+      :root {
+        --bg: #f5e6f0;
+        --card: #ffffff;
+        --accent: #5a0b2e;
+        --accent-2: #8a1342;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: var(--bg);
+        color: #222;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 18px 28px;
+        background: #dba9c8;
+        flex-wrap: wrap;
+      }
+
+      header h2 {
+        margin: 0;
+        font-size: 20px;
+      }
+
+      .search-box {
+        margin-left: auto;
+        max-width: 360px;
+        width: 100%;
+      }
+
+      .search-box input {
+        width: 100%;
+        padding: 10px 14px;
+        border-radius: 26px;
+        border: 1px solid #cfc;
+        font-size: 14px;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      }
+
+      /* Grid: 4 columns, gap */
+      .book-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+        padding: 28px 40px;
+      }
+
+      /* Each card */
+      .book {
+        background: var(--card);
+        border-radius: 12px;
+        padding: 12px;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 400px; /* ensures consistent card height */
+      }
+
+      /* Cover image fixes */
+      .book img {
+        width: 100%;
+        height: 400px; /* fixed cover area */
+        object-fit: cover; /* crop nicely to fill area */
+        border-radius: 8px;
+        display: block;
+        background: #eee;
+      }
+
+      .book-title {
+        margin: 12px 0 8px;
+        font-weight: 600;
+        font-size: 15px;
+        text-align: center;
+        color: #5a0b2e;
+        text-decoration: none;
+      }
+
+      .book button {
+        display: block;
+        margin: 0 auto;
+        background: var(--accent);
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .book button:hover {
+        background: var(--accent-2);
+      }
+      .btn {
+        margin: 0 auto;
+        display: inline-block;
+        padding: 8px 16px;
+        background-color:#5a0b2e ;
+        color: white;
+        text-decoration: none;
+         border-radius: 20px;
+      }
+      .btn:hover {
+        background: var(--accent-2);
+      }
+
+      /* No results message */
+      .no-results {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 30px 10px;
+        color: #777;
+        display: none;
+      }
+      .bns {
+        width: 400px;
+        height: 40px;
+        color: #5a0b2e;
+
+        text-decoration: none;
+        margin-bottom: 100px;
+        padding: 10px;
+      }
+           .bns:hover {
+        background: var(--accent-2);
+      }
+
+
+      /* Responsiveness */
+      @media (max-width: 1000px) {
+        .book-container {
+          grid-template-columns: repeat(2, 1fr);
+          padding: 20px;
+        }
+      }
+      @media (max-width: 560px) {
+        .book-container {
+          grid-template-columns: 1fr;
+          padding: 12px;
+        }
+        .search-box {
+          order: 3;
+          width: 100%;
+          margin-top: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>Search for books</h2>
+
+      <div class="search-box">
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Type a book title (e.g. Atomic Habits)..."
+        />
+      </div>
+    </header>
+
+    <main>
+      <div class="book-container" id="bookList">
+        <!-- 12 unique books — replace placeholder src with your real cover URLs -->
+        <div class="book" data-title="Atomic Habits">
+          <img
+            loading="lazy"
+            src="https://m.media-amazon.com/images/I/81ANaVZk5LL._UF1000,1000_QL80_.jpg"
+          />
+          <div class="book-title">Atomic Habits</div>
+          <button>Borrow</button>
+        </div>
+
+        <div class="book" data-title="It Ends with Us">
+          <img
+            loading="lazy"
+            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1688011813i/27362503.jpg"
+            alt="It Ends with Us cover"
+          />
+          <div class="book-title">It Ends with Us</div>
+          <button>Borrow</button>
+        </div>
+
+        <div class="book" data-title="The Psychology of Money">
+          <img
+            loading="lazy"
+            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1581527774i/41881472.jpg"
+            alt="Psychology of Money cover"
+          />
+          <div class="book-title">The Psychology of Money</div>
+            <a href="borrow.html" class="btn">Borrow</a>
+        </div>
+
+        <div class="book" data-title="The Midnight Library">
+          <img
+            loading="lazy"
+            src="https://image.isu.pub/201118164653-563a7bee4207fd8da0e68016617d89ce/jpg/page_1_thumb_large.jpg"
+            alt="The Midnight Library cover"
+          />
+          <div class="book-title">The Midnight Library</div>
+          <a href="borrow.html" class="btn">Borrow</a>
+        </div>
+
+        <div class="book" data-title="Rich Dad Poor Dad">
+          <img
+            loading="lazy"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8-oRU1vghDMMrGRs04T0Thj97jqr65VAdvQ&s"
+            alt="Rich Dad Poor Dad cover"
+          />
+          <div class="book-title">Rich Dad Poor Dad</div>
+         <a href="borrow.html" class="btn">Borrow</a>
+        </div>
+
+        <div class="book" data-title="The 48 Laws of Power">
+          <img
+            loading="lazy"
+            src="https://m.media-amazon.com/images/I/611X8GI7hpL._UF1000,1000_QL80_.jpg"
+            alt="The 48 Laws of Power cover"
+          />
+          <div class="book-title">The 48 Laws of Power</div>
+           <a href="borrow.html" class="btn">Borrow</a>
+        </div>
+
+        <div class="book" data-title="Can't Hurt Me">
+          <img
+            loading="lazy"
+            src="https://m.media-amazon.com/images/I/81YJFNc54lL._UF1000,1000_QL80_.jpg"
+          />
+          <div class="book-title">Can't Hurt Me</div>
+   <a href="borrow.html" class="btn">Borrow</a>
+        </div>
+
+        <div class="book" data-title="Start with Why">
+          <img
+            loading="lazy"
+            src="https://simonsinek.com/wp-content/uploads/2022/02/StartwithWHY-680x1024.jpeg"
+            alt="Start with Why cover"
+          />
+          <div class="book-title">Start with Why</div>
+           <a href="borrow.html" class="btn">Borrow</a>
+        </div>
+
+        <div class="book" data-title="Think and Grow Rich">
+          <img
+            loading="lazy"
+            src="https://m.media-amazon.com/images/I/61IxJuRI39L._UF1000,1000_QL80_.jpg"
+            alt="Think and Grow Rich cover"
+          />
+          <div class="book-title">Think and Grow Rich</div>
+             <a href="borrow.html" class="btn">Borrow</a>
+        </div>
+
+        <div class="book" data-title="Ego is the Enemy">
+          <img
+            loading="lazy"
+            src="https://m.media-amazon.com/images/I/71z70m5r7OL._UF1000,1000_QL80_.jpg"
+            alt="Ego is the Enemy cover"
+          />
+          <div class="book-title">Ego is the Enemy</div>
+      <a href="borrow.html" class="btn">Borrow</a>
+        </div>
+
+        <div class="book" data-title="Daring Greatly">
+          <img
+            loading="lazy"
+            src="https://m.media-amazon.com/images/I/81GOZ+-+yiL._UF1000,1000_QL80_.jpg"
+            alt="Daring Greatly cover"
+          />
+          <div class="book-title">Daring Greatly</div>
+      <a href="borrow.html" class="btn">Borrow</a>
+        </div>
+
+        <div class="no-results" id="noResults">
+          No books found. Try another title.
+        </div>
+      </div>
+      <div>
+        <a href="home.html" class="bns">Go back home</a>
+      </div>
+    </main>
+
+    <script>
+      // live search + no-results message
+      const searchInput = document.getElementById("searchInput");
+      const books = Array.from(document.querySelectorAll(".book"));
+      const noResults = document.getElementById("noResults");
+
+      function doFilter() {
+        const q = searchInput.value.trim().toLowerCase();
+        let visible = 0;
+        books.forEach((book) => {
+          // read title from data attribute
+          const title = (book.getAttribute("data-title") || "").toLowerCase();
+          const match = title.includes(q);
+          book.style.display = match ? "flex" : "none";
+          if (match) visible++;
+        });
+        noResults.style.display = visible === 0 ? "block" : "none";
+      }
+
+      searchInput.addEventListener("input", doFilter);
+
+      // optional: start with no filter
+      doFilter();
+    </script>
+  </body>
+</html>

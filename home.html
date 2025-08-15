@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BrightReads Library — Home</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fce8f3; /* light pink */
+    color: #333;
+  }
+
+  header {
+    background-color: #d8a5bf;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: bold;
+  }
+
+  nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #a87b91;
+    color: white;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .hero p {
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto 20px;
+  }
+
+  .hero button {
+    background-color: #5a0f2f;
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+
+  .hero button:hover {
+    background-color: #4a0d27;
+  }
+
+  .categories, .books {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .categories h2, .books h2 {
+    color: #a87b91;
+    margin-bottom: 25px;
+    font-size: 28px;
+  }
+
+  .category-list, .book-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .category, .book {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+  }
+
+  .category img, .book img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  .book button {
+    background-color: #5a0f2f;
+    color: white;
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .book button:hover {
+    background-color: #4a0d27;
+  }
+
+  footer {
+    background-color: #d8a5bf;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Tales and Tea</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="borrow.html">Borrow</a>
+    <a href="#">Login</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Welcome Back to Tales and Tea!</h2>
+  <p>Explore our latest collections, browse categories, and discover new adventures in reading.</p>
+  <button onclick="window.location.href='borrow.html'">Borrow a Book</button>
+</section>
+
+<section class="categories">
+  <h2>Book Categories</h2>
+  <div class="category-list">
+    <div class="category">
+      <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Fiction">
+      <h3>Fiction</h3>
+    </div>
+    <div class="category">
+      <img src="https://static01.nyt.com/images/2023/03/24/books/11NICOLE-CHUNG-COVER/11NICOLE-CHUNG-COVER-articleLarge.jpg?quality=75&auto=webp&disable=upscale" alt="Non-Fiction">
+      <h3>Non-Fiction</h3>
+    </div>
+    <div class="category">
+      <img src="https://i.etsystatic.com/35310667/r/il/58f86c/6192980537/il_570xN.6192980537_tew5.jpg" alt="Science">
+      <h3>Science</h3>
+    </div>
+    <div class="category">
+      <img src="https://m.media-amazon.com/images/I/81TEH6Dix2L._UF1000,1000_QL80_.jpg" alt="Kids">
+      <h3>Kids</h3>
+    </div>
+  </div>
+</section>
+
+<section class="books">
+  <h2>Popular Books</h2>
+  <div class="book-list">
+    <div class="book">
+      <img src="https://via.placeholder.com/200x250?text=Book+1" alt="Book 1">
+      <h3>The Great Adventure</h3>
+      <p>By Jane Doe</p>
+      <button>Borrow</button>
+    </div>
+    <div class="book">
+      <img src="https://via.placeholder.com/200x250?text=Book+2" alt="Book 2">
+      <h3>Mystery Island</h3>
+      <p>By John Smith</p>
+      <button>Borrow</button>
+    </div>
+    <div class="book">
+      <img src="https://via.placeholder.com/200x250?text=Book+3" alt="Book 3">
+      <h3>Science Wonders</h3>
+      <p>By Alice Lee</p>
+      <button>Borrow</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 BrightReads Library — All rights reserved.
+</footer>
+
+</body>
+</html>
