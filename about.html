@@ -1,169 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us - Tales & Tea</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #dba9c8;
-      }
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #d6d0be; /* light beige */
+  }
 
-      /* Navbar */
-      header {
-        background-color: #dba9c8;
-        padding: 15px 30px;
-        display: flex;
-        align-items: center;
-        border-bottom: 2px solid #b089a1;
-      }
+  /* Navbar */
+  header {
+    background-color: #d6d0be; /* light beige */
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #b5ad92; /* slightly darker beige */
+  }
 
-      header h2 {
-        margin: 0;
-        font-size: 24px;
-        font-weight: bold;
-        color: #4a0e2e;
-      }
+  header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #4b3b2b; /* dark brown */
+  }
 
-      nav {
-        margin-left: auto;
-      }
+  nav {
+    margin-left: auto;
+  }
 
-      nav a {
-        margin-left: 20px;
-        text-decoration: none;
-        color: black;
-        font-weight: 500;
-        transition: color 0.3s ease;
-      }
+  nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #4b3b2b; /* dark brown */
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
 
-      nav a:hover {
-        color: #5a0b2e;
-      }
+  nav a:hover {
+    color: #6b5741; /* lighter brown on hover */
+  }
 
-      /* Main content layout */
-      .container {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        padding: 40px 20px;
-        gap: 30px;
-      }
+  /* Main content layout */
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 30px;
+  }
 
-      /* Text section */
-      .text-box {
-        background-color: #e7c3d8;
-        padding: 25px;
-        border-radius: 10px;
-        max-width: 450px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      }
+  /* Text section */
+  .text-box {
+    background-color: #e0dcc8; /* soft beige */
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 450px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
 
-      .text-box h3 {
-        margin-top: 0;
-        color: #4a0e2e;
-        font-size: 20px;
-      }
+  .text-box h3 {
+    margin-top: 0;
+    color: #4b3b2b; /* dark brown */
+    font-size: 20px;
+  }
 
-      .text-box p {
-        margin: 8px 0;
-        line-height: 1.6;
-        color: #333;
-      }
+  .text-box p {
+    margin: 8px 0;
+    line-height: 1.6;
+    color: #3d3223; /* medium brown */
+  }
 
-      .text-box ul {
-        list-style: none;
-        padding: 0;
-      }
+  .text-box ul {
+    list-style: none;
+    padding: 0;
+  }
 
-      .text-box ul li {
-        margin-bottom: 8px;
-        padding-left: 20px;
-        position: relative;
-      }
+  .text-box ul li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+    color: #3d3223; /* medium brown */
+  }
 
-      .text-box ul li::before {
-        content: "•";
-        position: absolute;
-        left: 0;
-        color: #5a0b2e;
-        font-weight: bold;
-      }
+  .text-box ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #4b3b2b; /* dark brown */
+    font-weight: bold;
+  }
 
-      /* Image styling */
-      .image-box img {
-        max-width: 420px;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      }
+  /* Image styling */
+  .image-box img {
+    max-width: 420px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
 
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .container {
-          flex-direction: column;
-          text-align: center;
-        }
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      text-align: center;
+    }
 
-        .text-box {
-          max-width: 100%;
-        }
+    .text-box {
+      max-width: 100%;
+    }
 
-        .image-box img {
-          max-width: 100%;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Navbar -->
-    <header>
-      <h2>Tales & Tea</h2>
-      <nav>
-        <a href="home.html">Home</a>
-        <a href="search.html">Search books</a>
-          <a href="dashboard.html">My dashboard</a>
-
-        <a href="#">Contact</a>
-      </nav>
-    </header>
-
-    <!-- Main Content -->
-    <div class="container">
-      <div class="text-box">
-        <h3>About Us</h3>
-        <p>
-          Welcome to Tales & Tea – Your Gateway to Knowledge, Community, and
-          Inspiration.
-        </p>
-        <p>
-          At Tales & Tea, we believe in the transformative power of books,
-          learning, and shared experiences.
-        </p>
-
-        <h3>Our Mission</h3>
-        <p>To empower our community through:</p>
-        <ul>
-          <li>
-            Free access to books, digital resources, and cutting-edge
-            technology.
-          </li>
-          <li>
-            Lifelong learning programs for all ages (storytimes, workshops, tech
-            classes).
-          </li>
-          <li>Inclusivity—a welcoming space where everyone belongs.</li>
-        </ul>
-      </div>
-
-      <div class="image-box">
-        <img
-          src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f"
-          alt="Open Book"
-        />
-      </div>
-    </div>
-  </body>
-</html>
+    .image-box img {
+      max-width: 100%;
+    }
+  }
+</style>
